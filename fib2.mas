@@ -1,0 +1,54 @@
+//// Question 2: Indirect Addressing Only
+//// This solution never directly addresses any of the variables in the code
+Input
+Add One
+StoreI N_P
+Fibo, LoadI N_P
+Subt One
+Skipcond 400 // if(n = 0)
+Jump IfLT_0
+Jump Return
+IfLT_0, Skipcond 000 // if(n < 0)
+Jump For
+Jump Return
+For, LoadI I_P
+Subt N
+Skipcond 400
+Jump IfGT // if(i = n)
+Jump Done
+IfGT, Skipcond 800 // if(i > n)
+Jump Ops
+Jump Done
+Ops, Load A
+Add B
+StoreI F_P
+LoadI B_P
+StoreI A_P
+LoadI F_P
+StoreI B_P
+StoreI Pointer
+LoadI I_P
+Add One
+StoreI I_P
+Load Pointer
+Add One
+Store Pointer
+Jump For
+Return, LoadI N_P
+Store F_P
+Done, LoadI F_P
+Output
+Halt
+N, Dec 0
+A, Dec 0
+B, Dec 1
+F, Dec 0
+I, Dec 2
+Pointer, Hex 50
+N_P, Hex 27
+A_P, Hex 28
+B_P, Hex 29
+F_P, Hex 2A
+I_P, Hex 2B
+One, Dec 1
+Two, Dec 2

@@ -1,0 +1,49 @@
+// Question 3: Direct and Indirect Addressing
+// This solution stores each successive fib number into memory, starting at 0x050
+Input
+Add One
+Store N
+Fibo, Load N
+Subt One
+Skipcond 400 // if(n = 0)
+Jump IfLT_0
+Jump Return
+IfLT_0, Skipcond 000 // if(n < 0)
+Jump For
+Jump Return
+For, Load I
+Subt N
+Skipcond 400
+Jump IfGT // if(i = n)
+Jump Done
+IfGT, Skipcond 800 // if(i > n)
+Jump Ops
+Jump Done
+Ops, Load A
+Add B
+Store F
+Load B
+Store A
+Load F
+Store B
+StoreI Pointer
+Load I
+Add One
+Store I
+Load Pointer
+Add One
+Store Pointer
+Jump For
+Return, Load N
+Store F
+Done, Load F
+Output
+Halt
+Pointer, Hex 50
+N, Dec 0
+A, Dec 0
+B, Dec 1
+F, Dec 0
+I, Dec 2
+One, Dec 1
+Two, Dec 2
